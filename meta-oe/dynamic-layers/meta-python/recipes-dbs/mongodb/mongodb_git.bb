@@ -24,6 +24,7 @@ SRC_URI = "git://github.com/mongodb/mongo.git;branch=v4.4 \
            file://0001-Support-deprecated-resolver-functions.patch \
            file://0003-Fix-unknown-prefix-env.patch \
            file://1296.patch \
+           file://ssize_t.patch \
            "
 SRC_URI_append_libc-musl ="\
            file://0001-Mark-one-of-strerror_r-implementation-glibc-specific.patch \
@@ -59,6 +60,7 @@ EXTRA_OESCONS = "PREFIX=${prefix} \
                  CXXFLAGS='${CXXFLAGS}' \
                  TARGET_ARCH=${TARGET_ARCH} \
                  MONGO_VERSION=${PV} \
+                 OBJCOPY=${OBJCOPY} \
                  --ssl \
                  --disable-warnings-as-errors \
                  --use-system-zlib \

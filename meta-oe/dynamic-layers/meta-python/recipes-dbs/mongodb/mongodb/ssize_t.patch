@@ -1,0 +1,17 @@
+ssize_t is provided by sys/types.h, musl does not like
+it if the header is not included, for glibc it is included
+indirectly.
+
+Upstream-Status: Pending
+Signed-off-by: Khem Raj <raj.khem@gmail.com>
+
+--- a/src/third_party/kms-message/src/kms_request_str.h
++++ b/src/third_party/kms-message/src/kms_request_str.h
+@@ -24,6 +24,7 @@
+ #include <stdbool.h>
+ #include <stdint.h>
+ #include <string.h>
++#include <sys/types.h>
+ 
+ #if defined(_WIN32)
+ #include <basetsd.h>
